@@ -14,6 +14,14 @@ module "azure-resource-group" {
     var_resourceIdentifier = var.var_resourceIdentifier
 }
 # Configure the App service plan
+module "azure-container-registry" {
+    source = "./../../modules/container-registry"
+    var_defaultTags = var.var_tags
+    var_resourceLocation = var.var_location
+    var_resourceIdentifier = var.var_resourceIdentifier
+    var_resourceGroupName = "${module.azure-resource-group.out_resourceGroupName}"
+}
+# Configure the App service plan
 module "azure-app-service-plan" {
     source = "./../../modules/app-service-plan"
     var_defaultTags = var.var_tags
