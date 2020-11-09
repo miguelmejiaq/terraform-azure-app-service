@@ -3,7 +3,11 @@ resource "azurerm_app_service_plan" "app-service-azure-service-plan" {
     resource_group_name = "${var.var_resourceGroupName}"
     location = "${var.var_resourceLocation}"
     kind = "${var.var_resourceKind}"
-    sku = var.var_resourceSku
+    reserved = true
+    sku = {
+        tier = var.var_resourceSku.tier
+        size = var.var_resourceSku.size
+    }
     tags = {
         for k,v in merge(
             var.var_resourceTags,

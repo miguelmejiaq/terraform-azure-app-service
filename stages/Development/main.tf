@@ -19,5 +19,5 @@ module "azure-app-service-plan" {
     var_defaultTags = var.var_tags
     var_resourceLocation = var.var_location
     var_resourceIdentifier = var.var_resourceIdentifier
-    var_resourceGroupName = "${azure-resource-group.azurerm_resource_group.app-service-resource-group.name}"
+    var_resourceGroupName = "${module.azure-resource-group.out_resourceGroupName}"
 }
