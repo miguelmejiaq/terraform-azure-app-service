@@ -8,6 +8,8 @@ provider "azurerm" {
 }
 
 module "azure-resource-group" {
-    source = "./modules/resource-group"
-
+    source = "./../../modules/resource-group"
+    var_defaultTags = var.var_tags
+    var_resourceLocation = var.var_location
+    var_resourceIdentifier = var.var_resourceIdentifier
 }

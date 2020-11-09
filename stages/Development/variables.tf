@@ -16,10 +16,6 @@ variable "var_azureTenantId" {
     type = string
     description = "Azure Tenant ID"
 }
-variable "var_company" {
-    type = string
-    description = "Company preffix for resource identification"
-}
 variable "var_tags" {
     type = map
     description = "Default tags for all resources"
@@ -27,13 +23,13 @@ variable "var_tags" {
         Environment = "Development"
     }
 }
-variable "var_region" {
+variable "var_location" {
     type = string
     description = "Region for resources deployments"
     default = "westeurope"
 }
-variable "var_regionPreffix" {
+variable "var_resourceIdentifier" {
     type = string
-    description = "Preffix for resource deployments"
-    default = "euw"
+    description = "Identifier for resource deployments on this solution"
+    default = "euwdmm"
 }

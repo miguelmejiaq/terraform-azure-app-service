@@ -7,12 +7,12 @@
 #   @name: Name of the Resource Group
 #   @id: ID of the Resource Group
 resource "azurerm_resource_group" "app-service-resource-group" {
-    name = "${var.var_resourceGroupName}"
-    location = "${var.var_location}"
+    name = "${var.var_ResourceIdentifier}rsg"
+    location = "${var.var_resourceLocation}"
     tags = {
         for k,v in merge(
             var.var_resourceGroupTags,
-            var.var_tags
+            var.var_defaultTags
         ) : k => v
     }
 }
