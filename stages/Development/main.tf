@@ -6,9 +6,16 @@ provider "azurerm" {
     tenant_id       = var.var_azureTenantId
     version = "=1.44.0"
 }
-
+# Configure the resource group
 module "azure-resource-group" {
     source = "./../../modules/resource-group"
+    var_defaultTags = var.var_tags
+    var_resourceLocation = var.var_location
+    var_resourceIdentifier = var.var_resourceIdentifier
+}
+# Configure the App service plan
+module "azure-app-service-plan" {
+    source = "./../../modules/app-service-plan"
     var_defaultTags = var.var_tags
     var_resourceLocation = var.var_location
     var_resourceIdentifier = var.var_resourceIdentifier
