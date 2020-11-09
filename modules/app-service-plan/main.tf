@@ -4,7 +4,7 @@ resource "azurerm_app_service_plan" "app-service-azure-service-plan" {
     location = "${var.var_resourceLocation}"
     kind = "${var.var_resourceKind}"
     reserved = true
-    sku = {
+    sku {
         tier = var.var_resourceSku.tier
         size = var.var_resourceSku.size
     }
