@@ -35,7 +35,7 @@ module "azure-web-app" {
     var_resourceLocation = var.var_location
     var_resourceIdentifier = var.var_resourceIdentifier
     var_resourceGroupName = "${module.azure-resource-group.out_resourceGroupName}"
-    var_appServicePlanId = "${module.azure-app-service.plan.out_appServicePlanId}"
+    var_appServicePlanId = "${module.azure-app-service-plan.out_appServicePlanId}"
     var_containerUrl = "${module.azure-container-registry.out_containerRegistryName}.azurecr.io"
     var_containerUser = "${module.azure-container-registry.out_containerRegistryName}"
     var_containerPassword = "${module.azure-container-registry.out_containerRegistryPassword}"
