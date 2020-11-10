@@ -5,6 +5,7 @@ resource "azurerm_app_service" "app-service-azure-web-app" {
     app_service_plan_id = "${var.var_appServicePlanId}"
     site_config {
         linux_fx_version = "DOCKER|${var.var_containerUrl}/${var.var_containerRepository}:${var.var_containerTag}"
+        always_on = true
     }
     app_settings = {
         WEBSITES_ENABLE_APP_SERVICE_STORAGE = false
