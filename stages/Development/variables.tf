@@ -31,5 +31,5 @@ variable "var_location" {
 variable "var_resourceIdentifier" {
     type = string
     description = "Identifier for resource deployments on this solution"
-    default = "euwdmm"
+    default = "euwdmmt01"
 }
