@@ -8,11 +8,17 @@ resource "azurerm_app_service" "app-service-azure-web-app" {
     }
     app_settings = {
         WEBSITES_ENABLE_APP_SERVICE_STORAGE = false
-        DOCKER_REGISTRY_SERVER_URL = "${var.var_containerUrl}"
+        DOCKER_REGISTRY_SERVER_URL = "https://${var.var_containerUrl}"
         DOCKER_REGISTRY_SERVER_USERNAME = "${var.var_containerUser}"
         DOCKER_REGISTRY_SERVER_PASSWORD = "${var.var_containerPassword}"
     }
     identity {
         type = "SystemAssigned"
+    }
+    tags = {
+        for k,v in merge(
+            var.var_resourceTags,
+            var.var_defaultTags
+        ) : k => v
     }
 }
